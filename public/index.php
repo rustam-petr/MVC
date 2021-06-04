@@ -14,10 +14,17 @@ use W1020\HTML\Table as HtmlTable;
 use W1020\HTML\Pagination;
 
 $table = new Table($config);
-$data = $table->get();
+$table->setPageSize(3);
+$page = (int)($_GET['page'] ?? 1);
+//if (isset($_GET['page'])) {
+//    $page = $_GET['page'];
+//} else {
+//    $page = 1;
+//}
+$arrSQL = $table->getPage($page);
 
-$htmlTable = new HtmlTable();
-$pagination=new Pagination();
+//$htmlTable = new htmlTable();
+//$pagination = new Pagination();
 
 ?>
 <!doctype html>
@@ -33,7 +40,7 @@ $pagination=new Pagination();
 
 </head>
 <body>
-<?=$htmlTable->setData($data)->setClass("table table-striped")->html()?>
-<?=$pagination->setPageCount(10)->html()?>
+<?= (new htmlTable())->setData($arrSQL)->setClass("table table-success table-striped")->html() ?>
+<?= (new Pagination())->setPageCount($table->pageCount())->setActivePage($page)->html() ?>
 </body>
 </html>
