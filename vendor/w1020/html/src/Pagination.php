@@ -52,7 +52,8 @@ class Pagination
 EOT;
 
         for ($i = 1; $i <= $this->pageCount; $i++) {
-            $html .= "<li class='page-item'><a class='page-link' href='$this->urlPrefix$i'>$i</a></li>";
+            $html .= "<li class='page-item" . ($i == $this->activePage ? " active" : "") .
+                "'><a class='page-link' href='$this->urlPrefix$i'>$i</a></li>";
 
         }
 

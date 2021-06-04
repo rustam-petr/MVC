@@ -39,9 +39,22 @@ class Table
     }
 
     /**
+     * @param callable $f
+     * @return $this
+     */
+    public function addColumn(callable $f)
+    {
+        foreach ($this->data as $key => $value) {
+            $this->data[$key][] = $f($value);
+        }
+        return $this;
+    }
+
+    /**
      * @return string
      */
-    public function html(): string
+    public
+    function html(): string
     {
         $html = "<table class='$this->class'>";
 

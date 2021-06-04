@@ -45,21 +45,21 @@ private static $installed = array (
     ),
     'w1020/html' => 
     array (
-      'pretty_version' => 'v0.0.2',
-      'version' => '0.0.2.0',
+      'pretty_version' => 'v0.0.4',
+      'version' => '0.0.4.0',
       'aliases' => 
       array (
       ),
-      'reference' => '3854a3a285ee05c7703d325dc54064ad7667ebad',
+      'reference' => '9fbfde8ef89f182378dcc0752f086a69e7bf41bf',
     ),
     'w1020/orm' => 
     array (
-      'pretty_version' => 'v2.1.3',
-      'version' => '2.1.3.0',
+      'pretty_version' => 'v2.1',
+      'version' => '2.1.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'd436529bdd5a3bc47b9510b484a56c3ced07d7f5',
+      'reference' => 'c6d080d3258b2e733a6aff64a9ada65f3849ec80',
     ),
   ),
 );

@@ -9,19 +9,19 @@ $config = [
     "dbname" => "guestbook",
     "table" => "gb"
 ];
+
 use W1020\Table;
 use W1020\HTML\Table as HtmlTable;
 use W1020\HTML\Pagination;
 
 $table = new Table($config);
-$table->setPageSize(3);
+$table->setPageSize(1)->setIdName("id");
 $page = (int)($_GET['page'] ?? 1);
-//if (isset($_GET['page'])) {
-//    $page = $_GET['page'];
-//} else {
-//    $page = 1;
-//}
-$arrSQL = $table->getPage($page);
+if (isset($_GET['del'])) {
+    $table->del($_GET["del"]);
+    header("Location:?");
+}
+
 
 //$htmlTable = new htmlTable();
 //$pagination = new Pagination();
@@ -40,7 +40,16 @@ $arrSQL = $table->getPage($page);
 
 </head>
 <body>
-<?= (new htmlTable())->setData($arrSQL)->setClass("table table-success table-striped")->html() ?>
-<?= (new Pagination())->setPageCount($table->pageCount())->setActivePage($page)->html() ?>
+<?= (new htmlTable())
+    ->setData($table->getPage($page))
+    ->addColumn(fn($v) => "<a href='?del=$v[id]'>Delete</a>")
+    ->addColumn(fn($v) => "<a href='?edit=$v[id]'>Edit</a>")
+    ->setClass("table table-success table-striped")
+    ->html() ?>
+<?= (new Pagination())
+    ->setPageCount($table->pageCount())
+    ->setActivePage($page)
+    ->html() ?>
+<a href="?" class="btn btn-danger">Add</a>
 </body>
 </html>

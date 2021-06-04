@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6fb372e327d6806d2e97bee1ec938b90",
+    "content-hash": "3d6c5a9833f69515f8bc585af29fc69a",
     "packages": [
         {
             "name": "w1020/html",
-            "version": "v0.0.2",
+            "version": "v0.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rustam-petr/html.git",
-                "reference": "3854a3a285ee05c7703d325dc54064ad7667ebad"
+                "reference": "9fbfde8ef89f182378dcc0752f086a69e7bf41bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rustam-petr/html/zipball/3854a3a285ee05c7703d325dc54064ad7667ebad",
-                "reference": "3854a3a285ee05c7703d325dc54064ad7667ebad",
+                "url": "https://api.github.com/repos/rustam-petr/html/zipball/9fbfde8ef89f182378dcc0752f086a69e7bf41bf",
+                "reference": "9fbfde8ef89f182378dcc0752f086a69e7bf41bf",
                 "shasum": ""
             },
             "type": "library",
@@ -32,22 +32,22 @@
             ],
             "support": {
                 "issues": "https://github.com/rustam-petr/html/issues",
-                "source": "https://github.com/rustam-petr/html/tree/v0.0.2"
+                "source": "https://github.com/rustam-petr/html/tree/v0.0.4"
             },
-            "time": "2021-06-01T18:07:29+00:00"
+            "time": "2021-06-04T17:41:25+00:00"
         },
         {
             "name": "w1020/orm",
-            "version": "v2.1.3",
+            "version": "v2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/HannaLuniova/ORM.git",
-                "reference": "d436529bdd5a3bc47b9510b484a56c3ced07d7f5"
+                "reference": "c6d080d3258b2e733a6aff64a9ada65f3849ec80"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/HannaLuniova/ORM/zipball/d436529bdd5a3bc47b9510b484a56c3ced07d7f5",
-                "reference": "d436529bdd5a3bc47b9510b484a56c3ced07d7f5",
+                "url": "https://api.github.com/repos/HannaLuniova/ORM/zipball/c6d080d3258b2e733a6aff64a9ada65f3849ec80",
+                "reference": "c6d080d3258b2e733a6aff64a9ada65f3849ec80",
                 "shasum": ""
             },
             "type": "library",
@@ -63,9 +63,9 @@
             "description": "ORM",
             "support": {
                 "issues": "https://github.com/HannaLuniova/ORM/issues",
-                "source": "https://github.com/HannaLuniova/ORM/tree/v2.1.3"
+                "source": "https://github.com/HannaLuniova/ORM/tree/v2.1"
             },
-            "time": "2021-06-01T16:14:07+00:00"
+            "time": "2021-05-28T18:14:42+00:00"
         }
     ],
     "packages-dev": [],
