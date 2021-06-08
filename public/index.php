@@ -22,9 +22,13 @@ if (isset($_GET['del'])) {
     header("Location:?");
 }
 
-
-//$htmlTable = new htmlTable();
-//$pagination = new Pagination();
+//$table->ins($_POST);
+//header("Location: index.php")
+//<!--//print_r($_GET["edit"]);-->
+//<!--//$table->upd($_GET["edit"],explode(" ",$_POST["e"]));-->
+//<!--//header("Location:?");-->
+//<!--//$htmlTable = new htmlTable();-->
+//<!--//$pagination = new Pagination();-->
 
 ?>
 <!doctype html>
@@ -50,6 +54,6 @@ if (isset($_GET['del'])) {
     ->setPageCount($table->pageCount())
     ->setActivePage($page)
     ->html() ?>
-<a href="?" class="btn btn-danger">Add</a>
+<a href="insert.php" class="btn btn-danger">Add</a>
 </body>
 </html>
