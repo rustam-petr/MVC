@@ -22,21 +22,21 @@
     ),
     'w1020/html' => 
     array (
-      'pretty_version' => 'v0.0.4',
-      'version' => '0.0.4.0',
+      'pretty_version' => 'v0.0.5',
+      'version' => '0.0.5.0',
       'aliases' => 
       array (
       ),
-      'reference' => '9fbfde8ef89f182378dcc0752f086a69e7bf41bf',
+      'reference' => '4d8889bccda6cff74ab6e9119ecaef5c8c9a7904',
     ),
     'w1020/orm' => 
     array (
-      'pretty_version' => 'v2.1',
-      'version' => '2.1.0.0',
+      'pretty_version' => 'v2.1.7',
+      'version' => '2.1.7.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'c6d080d3258b2e733a6aff64a9ada65f3849ec80',
+      'reference' => 'dd44969121bf3ddad2edb481dd463d742ab1a49e',
     ),
   ),
 );

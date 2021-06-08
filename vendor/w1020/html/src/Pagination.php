@@ -43,11 +43,12 @@ class Pagination
 
     public function html()
     {
+        $previous = max(1, $this->activePage - 1);
         $html = <<<EOT
 <nav aria-label="...">
   <ul class="pagination">
-    <li class="page-item disabled">
-      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">&laquo;</a>
+    <li class="page-item">
+      <a class="page-link" href="$this->urlPrefix$previous">&laquo;</a>
     </li>
 EOT;
 
@@ -57,9 +58,10 @@ EOT;
 
         }
 
+        $next = min($this->pageCount, $this->activePage + 1);
         $html .= <<<EOT
     <li class="page-item">
-      <a class="page-link" href="#">&raquo;</a>
+      <a class="page-link" href="$this->urlPrefix$next">&raquo;</a>
     </li>
   </ul>
 </nav>

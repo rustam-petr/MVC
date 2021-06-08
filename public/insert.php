@@ -1,22 +1,3 @@
-<?php
-//
-//use W1020\Table;
-//
-//include "../vendor/autoload.php";
-//
-//$config = [
-//    "servername" => "localhost",
-//    "username" => "root",
-//    "password" => "root",
-//    "dbname" => "guestbook",
-//    "table" => "gb"
-//];
-//
-//$table = new Table($config);
-//
-//$table->ins($_POST);
-//header("Location: index.php");?>
-
 <!doctype html>
 
 <html lang="en">
@@ -28,12 +9,23 @@
     <title>Document</title>
 </head>
 <body>
-<form action="1.php" method="post">
-    Введите новое сообщение.
-    <input type="text" name="message"><br><br>
-    Введите ваше имя
-   <input type="text"  name="zp"><br><br>
+<?php
 
+use W1020\Table;
+
+include "../vendor/autoload.php";
+
+$config = include 'config.php';
+
+$table = new Table($config);
+$comments=$table->columnComments();
+?>
+<form action="index.php?ins" method="post">
+    <?php
+    foreach ($table->columns() as $column){?>
+    <?=$comments[$column]?> <input type="text" name="<?=$column?>"><br><br>
+<?php
+    }?>
     <input type="submit" value="ok">
 </form>
 </body>

@@ -2,31 +2,30 @@
 
 include "../vendor/autoload.php";
 
-$config = [
-    "servername" => "localhost",
-    "username" => "root",
-    "password" => "root",
-    "dbname" => "guestbook",
-    "table" => "gb"
-];
+$config = include 'config.php';
 
 use W1020\Table;
 use W1020\HTML\Table as HtmlTable;
 use W1020\HTML\Pagination;
 
 $table = new Table($config);
-$table->setPageSize(1)->setIdName("id");
+$table->setPageSize(10)->setIdName("id");
 $page = (int)($_GET['page'] ?? 1);
+
 if (isset($_GET['del'])) {
     $table->del($_GET["del"]);
     header("Location:?");
 }
+if (isset($_GET['ins'])) {
+    $table->ins($_POST);
+    header("Location:?");
+}
 
-//$table->ins($_POST);
-//header("Location: index.php")
-//<!--//print_r($_GET["edit"]);-->
-//<!--//$table->upd($_GET["edit"],explode(" ",$_POST["e"]));-->
-//<!--//header("Location:?");-->
+if (isset($_GET['edit'])) {
+    $table->upd($_GET["edit"], $_POST);
+    header("Location:?");
+}
+
 //<!--//$htmlTable = new htmlTable();-->
 //<!--//$pagination = new Pagination();-->
 
@@ -47,7 +46,7 @@ if (isset($_GET['del'])) {
 <?= (new htmlTable())
     ->setData($table->getPage($page))
     ->addColumn(fn($v) => "<a href='?del=$v[id]'>Delete</a>")
-    ->addColumn(fn($v) => "<a href='?edit=$v[id]'>Edit</a>")
+    ->addColumn(fn($v) => "<a href='edit.php?edit=$v[id]'>Edit</a>")
     ->setClass("table table-success table-striped")
     ->html() ?>
 <?= (new Pagination())
