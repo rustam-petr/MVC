@@ -15,18 +15,27 @@ use W1020\Table;
 
 include "../vendor/autoload.php";
 
-$config = include 'config.php';
+$config = include "config.php";
 
 $table = new Table($config);
 $comments = $table->columnComments();
+$data = $table->get();
 ?>
 <form action="index.php?edit=<?= $_GET['edit'] ?>" method="post">
     <?php
     foreach ($table->columns() as $column) {
-        ?>
-        <?= $comments[$column] ?> <input type="text" name="<?= $column ?>"><br><br>
-        <?php
-    } ?>
+        foreach ($data as $value) {
+            if ($_GET["edit"] == $value["id"]) {
+                ?>
+                <span><?= $comments[$column] ?></span>
+                <textarea rows="2" cols="40" class="form-control"
+                          name="<?= $column ?>"><?= $value[$column] ?></textarea>
+                <br><br>
+                <?php
+            }
+        }
+    }
+    ?>
     <input type="submit" value="ok">
 </form>
 </body>

@@ -9,7 +9,7 @@ use W1020\HTML\Table as HtmlTable;
 use W1020\HTML\Pagination;
 
 $table = new Table($config);
-$table->setPageSize(10)->setIdName("id");
+$table->setPageSize(3)->setIdName("id");
 $page = (int)($_GET['page'] ?? 1);
 
 if (isset($_GET['del'])) {
