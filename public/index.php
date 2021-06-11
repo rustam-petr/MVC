@@ -14,8 +14,9 @@ $page = (int)($_GET['page'] ?? 1);
 
 if (isset($_GET['del'])) {
     $table->del($_GET["del"]);
-    header("Location:?");
+    header("Location:?page=" . min($_GET["page"], $table->pageCount()));
 }
+
 if (isset($_GET['ins'])) {
     $table->ins($_POST);
     header("Location:?");
@@ -23,7 +24,7 @@ if (isset($_GET['ins'])) {
 
 if (isset($_GET['edit'])) {
     $table->upd($_GET["edit"], $_POST);
-    header("Location:?");
+    header("Location:?page=" . $_GET["page"]);
 }
 
 //<!--//$htmlTable = new htmlTable();-->
@@ -45,8 +46,8 @@ if (isset($_GET['edit'])) {
 <body>
 <?= (new htmlTable())
     ->setData($table->getPage($page))
-    ->addColumn(fn($v) => "<a href='?del=$v[id]'>Delete</a>")
-    ->addColumn(fn($v) => "<a href='edit.php?edit=$v[id]'>Edit</a>")
+    ->addColumn(fn($v) => "<a href='?del=$v[id]&page=$page'>Delete</a>")
+    ->addColumn(fn($v) => "<a href='edit.php?edit=$v[id]&page=$page'>Edit</a>")
     ->setClass("table table-success table-striped")
     ->html() ?>
 <?= (new Pagination())

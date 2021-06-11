@@ -31,12 +31,12 @@
     ),
     'w1020/orm' => 
     array (
-      'pretty_version' => 'v2.1.7',
-      'version' => '2.1.7.0',
+      'pretty_version' => 'v2.1.9',
+      'version' => '2.1.9.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'dd44969121bf3ddad2edb481dd463d742ab1a49e',
+      'reference' => '1d36fdfaf4cf427840c11fa4db9f07b44e2dc7f1',
     ),
   ),
 );

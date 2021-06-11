@@ -19,21 +19,16 @@ $config = include "config.php";
 
 $table = new Table($config);
 $comments = $table->columnComments();
-$data = $table->get();
+$data = $table->getRow($_GET["edit"]);
 ?>
-<form action="index.php?edit=<?= $_GET['edit'] ?>" method="post">
+<form action="index.php?edit=<?= $_GET['edit'] ?>&page=<?=$_GET["page"]?>" method="post">
     <?php
-    foreach ($table->columns() as $column) {
-        foreach ($data as $value) {
-            if ($_GET["edit"] == $value["id"]) {
-                ?>
-                <span><?= $comments[$column] ?></span>
-                <textarea rows="2" cols="40" class="form-control"
-                          name="<?= $column ?>"><?= $value[$column] ?></textarea>
-                <br><br>
-                <?php
-            }
-        }
+    foreach ($table->columns() as $column) { ?>
+        <span><?= $comments[$column] ?></span>
+        <textarea rows="2" cols="40" class="form-control"
+                  name="<?= $column ?>"><?= $data[$column] ?></textarea>
+        <br><br>
+        <?php
     }
     ?>
     <input type="submit" value="ok">

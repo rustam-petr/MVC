@@ -9,6 +9,14 @@ class CRUD extends Db
     protected string $tableName;
     protected string $idName = "id";
 
+    /**
+     * @return string
+     */
+    public function getIdName(): string
+    {
+        return $this->idName;
+    }
+
     public function __construct(array $config)
     {
         parent::__construct($config);
@@ -37,10 +45,22 @@ class CRUD extends Db
 
     /** читает данные из таблицы
      * @return array
+     * @throws \Exception
      */
     public function get(): array
     {
         return $this->query("SELECT * FROM $this->tableName;");
+    }
+
+    /**
+     * @param int $id
+     * @return array
+     * @throws \Exception
+     */
+    public function getRow(int $id): array
+    {
+        return $this->query(
+            "SELECT * FROM $this->tableName WHERE $this->idName=$id")[0];
     }
 
     /** удаляет строку из таблицы
@@ -86,4 +106,5 @@ class CRUD extends Db
 
         return $this->runSQL($sql);
     }
+
 }
